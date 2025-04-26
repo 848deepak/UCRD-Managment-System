@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Publication Added</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: #dc3545;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>UCRD Management System</h1>
+    </div>
+    <div class="content">
+        <h2>New Publication Added</h2>
+        <p>Hello {{recipient_name}},</p>
+        <p>A new publication has been added to the UCRD Management System:</p>
+        
+        <p><strong>Title:</strong> {{publication_title}}</p>
+        <p><strong>Researcher:</strong> {{researcher_name}}</p>
+        <p><strong>Supervisor:</strong> {{supervisor_name}}</p>
+        <p><strong>Publication Date:</strong> {{publication_date}}</p>
+        <p><strong>DOI:</strong> {{publication_doi}}</p>
+        
+        <p>You can view the complete details by clicking the button below:</p>
+        
+        <p>
+            <a href="{{view_url}}" class="btn">View Publication</a>
+        </p>
+        
+        <p>Thank you for using the UCRD Management System.</p>
+        
+        <p>Best regards,<br>UCRD Team</p>
+    </div>
+    <div class="footer">
+        <p>This is an automated message. Please do not reply to this email.</p>
+        <p>You can manage your notification preferences in your <a href="{{preferences_url}}">account settings</a>.</p>
+    </div>
+</body>
+</html> 

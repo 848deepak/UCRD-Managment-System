@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# UCRD Management System Stop Script
+echo "====================================="
+echo "  UCRD Management System Shutdown"
+echo "====================================="
+
+# Find running PHP server processes
+PHP_PROCESSES=$(ps aux | grep "php -S localhost:9000" | grep -v grep | awk '{print $2}')
+
+if [ -z "$PHP_PROCESSES" ]; then
+    echo "No UCRD Management System server running on port 9000."
+else
+    echo "Stopping UCRD Management System server..."
+    echo "Killing process(es): $PHP_PROCESSES"
+    pkill -f "php -S localhost:9000"
+    echo "✓ Server stopped successfully"
+fi
+
+echo "=====================================" 
