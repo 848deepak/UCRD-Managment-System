@@ -6,40 +6,16 @@
   },
   "routes": [
     {
-      "src": "/test",
-      "dest": "/api/test.php"
+      "src": "/hello",
+      "dest": "/api/hello.php"
     },
     {
       "src": "/",
-      "dest": "/api/root.php"
-    },
-    {
-      "src": "/index.php",
-      "dest": "/api/root.php"
-    },
-    {
-      "src": "/dashboard.php",
-      "dest": "/api/dashboard.php"
-    },
-    {
-      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|pdf|txt|html|json))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*\\.php)",
-      "dest": "/api/$1"
+      "dest": "/api/index.php"
     },
     {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
-  ],
-  "env": {
-    "PHP_VERSION": "8.1"
-  },
-  "build": {
-    "env": {
-      "PHP_VERSION": "8.1"
-    }
-  }
+  ]
 } 

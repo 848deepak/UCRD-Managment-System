@@ -1,6 +1,6 @@
 <?php
-// Simple Vercel PHP handler
-// This is a minimal approach that should work with Vercel
+// Main Vercel PHP handler for UCRD Management System
+// This handles all requests and serves the appropriate content
 
 // Set error reporting
 error_reporting(E_ALL);
@@ -13,13 +13,10 @@ $path = parse_url($request_uri, PHP_URL_PATH);
 // Remove leading slash
 $path = ltrim($path, '/');
 
-// If accessing the root, serve the main index.php
+// If accessing the root, serve the main application
 if (empty($path)) {
-    if (file_exists('../index.php')) {
-        require_once '../index.php';
-    } else {
-        echo "Main application file not found";
-    }
+    // Serve the main dashboard
+    require_once '../index.php';
     exit;
 }
 
@@ -55,12 +52,7 @@ if (file_exists($requested_file) && is_file($requested_file)) {
         readfile($requested_file);
     }
 } else {
-    // File not found, serve index.php
-    if (file_exists('../index.php')) {
-        require_once '../index.php';
-    } else {
-        http_response_code(404);
-        echo "File not found: " . htmlspecialchars($path);
-    }
+    // File not found, serve the main application
+    require_once '../index.php';
 }
 ?> 
