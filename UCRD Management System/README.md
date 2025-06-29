@@ -121,4 +121,4 @@ The system uses a SQLite database with the following tables:
 
 ## Credits
 
-Developed as a full-stack web development project using PHP and SQLite.
+Developed as a full-stack web development project using PHP and SQLite. 
