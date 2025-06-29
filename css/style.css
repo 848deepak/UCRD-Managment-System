@@ -1,0 +1,57 @@
+/* Main stylesheet for UCRD Management System */
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.card-dashboard {
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.card-dashboard:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-action {
+    margin-right: 5px;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    background-color: #f8f9fa;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.table-responsive {
+    margin-top: 20px;
+}
+
+.back-link {
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.entity-count {
+    font-size: 3rem;
+    font-weight: bold;
+} 

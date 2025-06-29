@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# UCRD Management System Launcher
+echo "====================================="
+echo "  UCRD Management System Launcher"
+echo "====================================="
+
+# Check if SQLite is available
+if ! command -v sqlite3 &> /dev/null; then
+    echo "WARNING: SQLite3 not found. The application may not work properly."
+else
+    echo "✓ SQLite3 is available"
+fi
+
+# Check if database file exists
+if [ -f "ucrd_management.sqlite" ]; then
+    echo "✓ Database file found"
+    # Count records
+    SUPERVISORS=$(sqlite3 ucrd_management.sqlite "SELECT COUNT(*) FROM Supervisor;")
+    RESEARCHERS=$(sqlite3 ucrd_management.sqlite "SELECT COUNT(*) FROM Researcher;")
+    PROJECTS=$(sqlite3 ucrd_management.sqlite "SELECT COUNT(*) FROM Project;")
+    PUBLICATIONS=$(sqlite3 ucrd_management.sqlite "SELECT COUNT(*) FROM Publication;")
+    
+    echo "  • Supervisors: $SUPERVISORS"
+    echo "  • Researchers: $RESEARCHERS"
+    echo "  • Projects: $PROJECTS"
+    echo "  • Publications: $PUBLICATIONS"
+else
+    echo "! Database file not found - it will be created on first run"
+fi
+
+echo "-------------------------------------"
+echo "Starting UCRD Management System on http://localhost:9000"
+echo "Press Ctrl+C to stop the server"
+echo "-------------------------------------"
+
+# Start PHP development server
+php -S localhost:9000
+
+# Exit message
+echo "-------------------------------------"
+echo "UCRD Management System has been stopped"
+echo "-------------------------------------" 
