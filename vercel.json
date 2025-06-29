@@ -6,12 +6,28 @@
   },
   "routes": [
     {
+      "src": "/test",
+      "dest": "/api/test.php"
+    },
+    {
       "src": "/",
       "dest": "/api/root.php"
     },
     {
+      "src": "/index.php",
+      "dest": "/api/root.php"
+    },
+    {
+      "src": "/dashboard.php",
+      "dest": "/api/dashboard.php"
+    },
+    {
       "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|pdf|txt|html|json))",
       "dest": "/$1"
+    },
+    {
+      "src": "/(.*\\.php)",
+      "dest": "/api/$1"
     },
     {
       "src": "/(.*)",

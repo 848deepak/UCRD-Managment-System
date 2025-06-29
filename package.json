@@ -1,0 +1,23 @@
+{
+  "name": "ucrd-management-system",
+  "version": "1.0.0",
+  "description": "University Research Center Data Management System",
+  "main": "index.php",
+  "scripts": {
+    "start": "php -S localhost:3000",
+    "build": "echo 'No build step required for PHP'",
+    "vercel-build": "echo 'Vercel build completed'"
+  },
+  "keywords": [
+    "php",
+    "research",
+    "management",
+    "university",
+    "database"
+  ],
+  "author": "Deepak Pandey",
+  "license": "MIT",
+  "engines": {
+    "php": "8.1"
+  }
+} 

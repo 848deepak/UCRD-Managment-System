@@ -1,5 +1,6 @@
 <?php
-// Simple Vercel PHP handler for UCRD Management System
+// Simple Vercel PHP handler
+// This is a minimal approach that should work with Vercel
 
 // Set error reporting
 error_reporting(E_ALL);
