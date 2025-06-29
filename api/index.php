@@ -1,6 +1,5 @@
 <?php
-// Vercel API entry point for UCRD Management System
-// This handles all requests and routes them to the appropriate PHP files
+// Simple Vercel PHP handler for UCRD Management System
 
 // Set error reporting
 error_reporting(E_ALL);
@@ -10,26 +9,21 @@ ini_set('display_errors', 1);
 $request_uri = $_SERVER['REQUEST_URI'] ?? '/';
 $path = parse_url($request_uri, PHP_URL_PATH);
 
-// Remove leading slash and any query parameters
+// Remove leading slash
 $path = ltrim($path, '/');
-$path = strtok($path, '?');
-
-// Define the base directory for the application
-$base_dir = '../';
 
 // If accessing the root, serve the main index.php
-if (empty($path) || $path === 'index.php') {
-    if (file_exists($base_dir . 'index.php')) {
-        require_once $base_dir . 'index.php';
+if (empty($path)) {
+    if (file_exists('../index.php')) {
+        require_once '../index.php';
     } else {
-        http_response_code(404);
         echo "Main application file not found";
     }
     exit;
 }
 
 // Check if the requested file exists
-$requested_file = $base_dir . $path;
+$requested_file = '../' . $path;
 
 if (file_exists($requested_file) && is_file($requested_file)) {
     $extension = pathinfo($requested_file, PATHINFO_EXTENSION);
@@ -38,7 +32,7 @@ if (file_exists($requested_file) && is_file($requested_file)) {
     if ($extension === 'php') {
         require_once $requested_file;
     }
-    // Handle static files (CSS, JS, images, etc.)
+    // Handle static files
     else {
         $mime_types = [
             'css' => 'text/css',
@@ -60,9 +54,9 @@ if (file_exists($requested_file) && is_file($requested_file)) {
         readfile($requested_file);
     }
 } else {
-    // File not found, try to serve index.php (for pretty URLs)
-    if (file_exists($base_dir . 'index.php')) {
-        require_once $base_dir . 'index.php';
+    // File not found, serve index.php
+    if (file_exists('../index.php')) {
+        require_once '../index.php';
     } else {
         http_response_code(404);
         echo "File not found: " . htmlspecialchars($path);
